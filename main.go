@@ -16,9 +16,9 @@ Menu:
 		case 1:
 			PrintNote(notes)
 		case 2:
-			notes = AddNote(notes)
+			AddNote(notes)
 		case 3:
-			notes = DeleteNote(notes)
+			DeleteNote(notes)
 		case 4:
 			break Menu
 		}
@@ -48,7 +48,7 @@ func PrintNote(notes stringMap) {
 	}
 }
 
-func AddNote(notes stringMap) stringMap {
+func AddNote(notes stringMap) {
 	var newNoteKey string
 	var newNoteValue string
 
@@ -58,16 +58,13 @@ func AddNote(notes stringMap) stringMap {
 	fmt.Scan(&newNoteValue)
 
 	notes[newNoteKey] = newNoteValue
-
-	return notes
 }
 
-func DeleteNote(notes stringMap) stringMap {
+func DeleteNote(notes stringMap) {
 	var noteKeyForDelete string
 
 	fmt.Print("Enter note name: ")
 	fmt.Scan(&noteKeyForDelete)
 	delete(notes, noteKeyForDelete)
 
-	return notes
 }
